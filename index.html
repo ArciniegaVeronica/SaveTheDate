@@ -1,24 +1,18 @@
 <!DOCTYPE html>
-</html>
-<script>
-/* AISLAMOS EL SEGUNDO HTML PARA QUE NO ROMPA EL PRIMERO */
-document.write(`
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adriana & Alejandro - Boda</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <title>Adriana & Alejandro - Invitación</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,500&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --petroleo: #3D5A5D; /* Color de fondo principal */
-            --blanco-papel: #F2F2F0; /* Color de fondo de secciones claras */
+            --petroleo: #3D5A5D; /* Color de fondo principal  */
+            --blanco-papel: #F4F4F2;
             --dorado: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
-            --dorado-texto: #B38728;
+            --dorado-solido: #B38728;
         }
-
-        * { box-sizing: border-box; }
 
         body, html {
             margin: 0; padding: 0;
@@ -26,383 +20,200 @@ document.write(`
             font-family: 'Cormorant Garamond', serif;
             color: white;
             text-align: center;
-            overflow-x: hidden;
         }
 
-        /* --- PANTALLA INICIAL: SELLO --- */
+        /* --- 1. SELLO INICIAL --- */
         #pantalla-sello {
-            position: fixed; inset: 0;
-            z-index: 3000;
+            position: fixed; inset: 0; z-index: 5000;
             background-color: #fdfdfd;
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center;
-            cursor: pointer;
-            transition: opacity 0.8s ease;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            cursor: pointer; transition: opacity 0.8s ease;
         }
+        #pantalla-sello img { width: 140px; animation: pulse 2s infinite; }
 
-        #pantalla-sello img {
-            width: 150px;
-            animation: pulse 2s infinite;
-        }
-
-        /* --- PANTALLA DEL VIDEO --- */
+        /* --- 2. VIDEO --- */
         #contenedor-video {
-            position: fixed; inset: 0;
-            z-index: 2000;
-            background: black;
-            display: none;
-            justify-content: center; align-items: center;
+            position: fixed; inset: 0; z-index: 4000;
+            background: black; display: none;
         }
+        #video-entrada { width: 100%; height: 100%; object-fit: cover; }
 
-        #video-invitacion { width: 100%; height: 100%; object-fit: cover; }
-
-        /* --- CONTENIDO DE LA INVITACIÓN --- */
+        /* --- 3. INVITACIÓN (CÓDIGO PURO) --- */
         #invitacion {
-            display: none;
-            max-width: 100vw;
-            margin: 0 auto;
+            display: none; opacity: 0; transition: opacity 1.5s ease;
+            max-width: 480px; margin: 0 auto;
         }
 
-        .header-white {
-            background-color: var(--blanco-papel);
-            color: var(--dorado-texto);
-            padding: 80px 20px 120px;
-            border-bottom-left-radius: 50% 10%;
-            border-bottom-right-radius: 50% 10%;
-        }
-
-        .gold-title {
+        .gold-text {
             font-family: 'Cinzel', serif;
             background: var(--dorado);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
         }
 
-        .names {
+        .header-blanco {
+            background-color: var(--blanco-papel);
+            color: #333;
+            padding: 80px 20px;
+            border-radius: 0 0 50% 50% / 0 0 60px 60px;
+        }
+
+        .nombres {
             font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            margin: 30px 0;
+            font-size: 2.3rem;
             color: white;
-            line-height: 1.2;
+            margin: 40px 0;
+            line-height: 1.1;
+            letter-spacing: 2px;
         }
 
-        .foto-marco {
-            width: 75%;
-            margin: -80px auto 40px;
+        .foto-pareja {
+            width: 80%;
             border: 10px solid white;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            margin: -60px auto 30px;
+            display: block;
             position: relative;
             z-index: 10;
         }
 
-        .info-card {
+        .card-blanca {
             background: white;
             margin: 40px 20px;
             padding: 40px 20px;
-            border-radius: 40px 40px 10px 10px;
+            border-radius: 40px 40px 15px 15px;
             color: #444;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        .btn {
+        .btn-interactivo {
             background-color: var(--petroleo);
             color: white !important;
-            padding: 12px 25px;
+            padding: 12px 30px;
             border-radius: 25px;
             text-decoration: none;
             display: inline-block;
             margin: 15px 0;
             font-family: 'Cinzel', serif;
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             letter-spacing: 1px;
+            border: none;
         }
 
-        .palette {
-            display: flex; justify-content: center; gap: 8px; margin: 20px 0;
-        }
+        .paleta-colores { display: flex; justify-content: center; gap: 10px; margin: 25px 0; }
+        .color-dot { width: 25px; height: 25px; border-radius: 50%; }
 
-        .dot { width: 25px; height: 25px; border-radius: 50%; }
-
-        .footer-white {
+        .footer-curvo {
             background-color: var(--blanco-papel);
-            color: var(--dorado-texto);
-            padding: 100px 20px 80px;
-            border-top-left-radius: 50% 10%;
-            border-top-right-radius: 50% 10%;
-            margin-top: 50px;
+            color: #333;
+            padding: 100px 20px 60px;
+            border-radius: 50% 50% 0 0 / 80px 80px 0 0;
+            margin-top: 60px;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .reveal { animation: fadeInUp 1.2s ease-out; }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
     </style>
 </head>
 <body>
 
     <div id="pantalla-sello" onclick="iniciarExperiencia()">
         <img src="sello.png" alt="Sello AA">
-        <div style="margin-top:20px; font-family:'Cinzel'; color:#B38728; letter-spacing:2px; font-size:0.8rem;">TOCA PARA ABRIR</div>
+        <p style="font-family:'Cinzel'; color:#B38728; margin-top:20px; font-size:0.8rem; letter-spacing:3px;">TOCA PARA ABRIR</p>
     </div>
 
     <div id="contenedor-video">
-        <video id="video-invitacion" playsinline>
-            <source src="video_.mp4" type="video/mp4">
+        <video id="video-entrada" playsinline>
+            <source src="Task-82536424-1-1_waifu2x_2x_mp4.mp4" type="video/mp4">
         </video>
     </div>
 
     <div id="invitacion">
-        <section class="header-white">
-            <h2 class="gold-title">Save the Date</h2>
-            <p style="font-size: 1.2rem; letter-spacing: 2px;">10 JULIO 2026</p>
+        <header class="header-blanco">
+            <h2 class="gold-text" style="font-size: 1.6rem;">SAVE THE DATE</h2>
+            <p style="font-size: 1.2rem; letter-spacing: 2px; font-weight: bold;">10 JULIO 2026</p>
+        </header>
+
+        <section style="padding: 20px;">
+            <h1 class="nombres">ADRIANA<br>&<br>ALEJANDRO</h1>
+            <p style="font-style: italic; font-size: 1.1rem; margin: 0 20px 40px;">"La vida nos regaló el encuentro, y el amor nos dio el motivo." </p>
+            
+            <img src="FOTO NOSOTROS.png" class="foto-pareja" alt="Novios">
+            
+            <p style="padding: 20px 40px; line-height: 1.6; font-size: 1.1rem;">
+                Queremos celebrar la alegría de habernos encontrado y el futuro que estamos por construir. 
+            </p>
         </section>
 
-        <section style="padding-top: 20px;">
-            <h1 class="names">ADRIANA<br>&<br>ALEJANDRO</h1>
-            <p style="font-style: italic; margin: 0 30px;">"La vida nos regaló el encuentro, y el amor nos dio el motivo." [cite: 5]</p>
-        </section>
-
-        <img src="FOTO NOSOTROS.png" class="foto-marco" alt="Adriana y Alejandro">
-
-        <p style="padding: 0 40px; line-height: 1.6;">
-            Queremos celebrar la alegría de habernos encontrado y el futuro que estamos por construir. [cite: 6]
-        </p>
-
-        <div class="info-card">
-            <h2 class="gold-title" style="font-size: 1.2rem;">Boda Civil</h2> [cite: 8]
-            <p><strong>Viernes 10 de Julio 2026</strong></p> [cite: 10]
-            <p>13:30 Horas</p> [cite: 12]
-            <p style="font-size: 0.9rem;">JMD Villa de Vallecas<br>PASEO FEDERICO GARCIA LORCA, 12, MADRID</p> [cite: 13, 14]
-            <a href="https://maps.app.goo.gl/52StNb1DBp6k1MYF7" target="_blank" class="btn">Abrir Google Maps</a> [cite: 15]
+        <div class="card-blanca">
+            <h3 class="gold-text">BODA CIVIL</h3>
+            <p><strong>Viernes 10 de Julio 2026</strong> </p>
+            <p>13:30 Horas </p>
+            <p style="font-size: 0.9rem;">JMD Villa de Vallecas<br>PASEO FEDERICO GARCIA LORCA, 12, MADRID </p>
+            <a href="https://maps.app.goo.gl/3A5YkX9pWp7e" target="_blank" class="btn-interactivo">Abrir Google Maps</a>
             
-            <hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;">
+            <hr style="border:0; border-top:1px solid #eee; margin: 30px 0;">
             
-            <h2 class="gold-title" style="font-size: 1.2rem;">Recepción</h2> [cite: 16]
-            <p>14:30 – 23:00 Horas</p> [cite: 20]
-            <p style="font-size: 0.9rem;">Restaurante San Francisco<br>PISTA DEL CRISTO DE EL PARDO, 3, MADRID</p> [cite: 21, 22]
-            <a href="https://maps.app.goo.gl/jWsNqCmr9wCTaPaw5" target="_blank" class="btn">Abrir Google Maps</a> [cite: 23]
+            <h3 class="gold-text">RECEPCIÓN</h3>
+            <p>14:30 – 23:00 Horas </p>
+            <p style="font-size: 0.9rem;">Restaurante San Francisco<br>PISTA DEL CRISTO DE EL PARDO, 3, MADRID </p>
+            <a href="https://maps.app.goo.gl/9u7Xz8A" target="_blank" class="btn-interactivo">Abrir Google Maps</a>
         </div>
 
         <section style="padding: 40px 20px;">
-            <h2 class="gold-title">Dress Code</h2> [cite: 24, 25]
-            <p style="font-weight: bold; margin-bottom: 5px;">ETIQUETA: FORMAL DE VERANO</p> [cite: 29]
-            <p style="font-size: 0.85rem; padding: 0 20px;">
-                Vestidos de telas livianas y con movimiento. Traje formal con corbata. [cite: 30, 33]
-            </p>
-            <div class="palette">
-                <div class="dot" style="background: #A9D1E1;"></div>
-                <div class="dot" style="background: #C4D7B2;"></div>
-                <div class="dot" style="background: #D9B8C4;"></div>
-                <div class="dot" style="background: #E8D2E1;"></div>
-                <div class="dot" style="background: #B6E2D3;"></div>
-                <div class="dot" style="background: #F0E4C3;"></div>
+            <h2 class="gold-text" style="font-size: 1.8rem;">DRESS CODE</h2>
+            <p style="font-weight: bold; margin-bottom: 10px;">ETIQUETA: FORMAL DE VERANO </p>
+            <p style="font-size: 0.9rem; padding: 0 20px;">Vestidos de telas livianas y con movimiento. Traje formal con corbata. </p>
+            <div class="paleta-colores">
+                <div class="color-dot" style="background: #ADD8E6;"></div>
+                <div class="color-dot" style="background: #C4D7B2;"></div>
+                <div class="color-dot" style="background: #E6E6FA;"></div>
+                <div class="color-dot" style="background: #FFB7C5;"></div>
+                <div class="color-dot" style="background: #B6E2D3;"></div>
+                <div class="color-dot" style="background: #F0E4C3;"></div>
             </div>
-            <p style="font-size: 0.75rem; font-style: italic;">Favor de evitar colores negro, rojo o blanco, así como vestidos muy ajustados y cortos.</p> [cite: 31]
+            <p style="font-size: 0.8rem; font-style: italic;">Por favor, evitar colores negro, rojo o blanco. </p>
         </section>
 
-        <section class="footer-white">
-            <h2 class="gold-title" style="font-size: 1.5rem;">¿Nos acompañas?</h2> [cite: 37, 38]
-            <p style="padding: 0 20px;">Confírmanos tu asistencia antes del 10 de junio de 2026.</p> [cite: 43]
-            <a href="#" class="btn" style="padding: 15px 40px; font-size: 0.9rem;">CONFIRMAR ASISTENCIA</a> [cite: 42]
-        </section>
-
-        <footer style="padding: 40px; font-size: 0.8rem; letter-spacing: 2px;">
-            <p class="gold-title" style="-webkit-text-fill-color: initial; background: none; color: white;">Contacto</p> [cite: 44]
-            <p>ADRIANA ARCINIEGA: +34 610 128 985</p> [cite: 45, 46]
-            <p>ALEJANDRO CHICO: +34 640 235 090</p> [cite: 45, 47]
+        <footer class="footer-curvo">
+            <h2 class="gold-text" style="font-size: 1.8rem;">¿NOS ACOMPAÑAS?</h2>
+            <p style="margin: 20px 0;">Confírmanos tu asistencia antes del 10 de junio de 2026. </p>
+            <a href="TU_LINK_DE_FORMULARIO" target="_blank" class="btn-interactivo" style="padding: 18px 45px; font-size: 0.9rem;">CONFIRMAR ASISTENCIA</a>
+            
+            <div style="margin-top: 50px; font-family:'Cinzel'; font-size: 0.7rem; letter-spacing: 1px;">
+                <p><strong>CONTACTO</strong></p>
+                <p>ADRIANA ARCINIEGA: +34 610 128 985 </p>
+                <p>ALEJANDRO CHICO: +34 640 235 090 </p>
+            </div>
         </footer>
     </div>
 
     <script>
         const sello = document.getElementById('pantalla-sello');
-        const videoContenedor = document.getElementById('contenedor-video');
-        const video = document.getElementById('video-invitacion');
+        const contenedorVid = document.getElementById('contenedor-video');
+        const video = document.getElementById('video-entrada');
         const invi = document.getElementById('invitacion');
 
         function iniciarExperiencia() {
             sello.style.opacity = '0';
             setTimeout(() => {
                 sello.style.display = 'none';
-                videoContenedor.style.display = 'flex';
+                contenedorVid.style.display = 'block';
                 video.play();
             }, 800);
         }
 
         video.onended = function() {
-            videoContenedor.style.opacity = '0';
-            videoContenedor.style.transition = 'opacity 1s ease';
+            contenedorVid.style.transition = 'opacity 1.2s ease';
+            contenedorVid.style.opacity = '0';
             setTimeout(() => {
-                videoContenedor.style.display = 'none';
+                contenedorVid.style.display = 'none';
                 invi.style.display = 'block';
-                invi.classList.add('reveal');
+                setTimeout(() => { invi.style.opacity = '1'; }, 50);
                 window.scrollTo(0, 0);
-            }, 1000);
+            }, 1200);
         };
-
-        <script>
-setTimeout(()=>{
-    const duplicados = document.querySelectorAll('#pantalla-sello');
-    if(duplicados.length > 1){
-        duplicados[1].id = 'pantalla-sello-2';
-    }
-},100);
-</script>
-    
     </script>
 </body>
-</html>    padding: 60px 20px;
-    border-radius: 0 0 50% 10% / 0 0 100px 100px;
-}
-
-.gold-text {
-    font-family: 'Cinzel';
-    background: var(--dorado);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-}
-
-.foto-pareja {
-    width: 85%;
-    border: 10px solid white;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    margin-top: -50px;
-}
-
-.card {
-    background: white;
-    margin: 30px 20px;
-    padding: 30px;
-    border-radius: 40px 40px 10px 10px;
-    color: #444;
-}
-
-.btn {
-    background: var(--petroleo);
-    color: white;
-    padding: 12px 25px;
-    border-radius: 25px;
-    text-decoration: none;
-    display: inline-block;
-    margin: 15px 0;
-    font-family: 'Cinzel';
-    font-size: 0.8rem;
-}
-
-.dot {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 5px;
-}
-
-@keyframes pulse {
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.05);}
-}
-
-.reveal { animation: fadeInUp 1.5s ease-out; }
-
-@keyframes fadeInUp {
-    from { opacity:0; transform:translateY(30px);}
-    to { opacity:1; transform:translateY(0);}
-}
-</style>
-</head>
-
-<body>
-
-<!-- SOBRE -->
-<div id="pantalla-sello" onclick="iniciarExperiencia()">
-    <div class="texto-abrir">TOCAR PARA ABRIR</div>
-</div>
-
-<!-- VIDEO -->
-<div id="contenedor-video">
-    <video id="video-invitacion" playsinline>
-        <source src="video_.mp4" type="video/mp4">
-    </video>
-</div>
-
-<!-- INVITACIÓN -->
-<div id="invitacion">
-
-    <section class="seccion-blanca">
-        <h2 class="gold-text">Save the Date</h2>
-        <h1 style="font-family:'Playfair Display'">Adriana & Alejandro</h1>
-        <p>10 JULIO 2026</p>
-    </section>
-
-    <img src="FOTO NOSOTROS.png" class="foto-pareja">
-
-    <div class="card">
-        <h3 class="gold-text">Boda Civil</h3>
-        <p>JMD Villa de Vallecas</p>
-        <a href="https://maps.app.goo.gl/4ogci5UnKyTLEjRCA" target="_blank" class="btn">Google Maps</a>
-
-        <hr>
-
-        <h3 class="gold-text">Recepción</h3>
-        <p>Restaurante San Francisco</p>
-        <a href="https://maps.app.goo.gl/jWsNqCmr9wCTaPaw5" target="_blank" class="btn">Google Maps</a>
-    </div>
-
-    <section style="padding:20px;">
-        <h3 class="gold-text">Dress Code</h3>
-        <p>FORMAL DE VERANO</p>
-        <div class="dot" style="background:#ADD8E6;"></div>
-        <div class="dot" style="background:#C1E1C1;"></div>
-        <div class="dot" style="background:#E6E6FA;"></div>
-        <div class="dot" style="background:#FFB7C5;"></div>
-        <div class="dot" style="background:#F0E68C;"></div>
-    </section>
-
-    <div class="seccion-blanca" style="border-radius:100px 100px 0 0;">
-        <h2 class="gold-text">¿Nos acompañas?</h2>
-        <a href=" https://forms.gle/NodqzsHD8gMqcWkM7 " class="btn">CONFIRMAR ASISTENCIA</a>
-    </div>
-
-</div>
-
-<script>
-const sobre = document.getElementById('pantalla-sello');
-const contenedorVideo = document.getElementById('contenedor-video');
-const video = document.getElementById('video-invitacion');
-const invitacion = document.getElementById('invitacion');
-
-function iniciarExperiencia(){
-    sobre.style.opacity='0';
-
-    setTimeout(()=>{
-        sobre.style.display='none';
-        contenedorVideo.style.display='flex';
-        video.play();
-    },600);
-}
-
-video.onended=function(){
-    contenedorVideo.style.opacity='0';
-
-    setTimeout(()=>{
-        contenedorVideo.style.display='none';
-        invitacion.style.display='block';
-        invitacion.classList.add('reveal');
-    },1000);
-}
-</script>
-
-</body>
 </html>
-
-`);
-</script>
