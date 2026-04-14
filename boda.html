@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Adriana &amp; Alejandro - Invitación&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&amp;family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&amp;family=Playfair+Display:ital,wght@0,400;1,700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">    </span></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>:root {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--petroleo: #3D5A5D;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--blanco-papel: #F2F2F0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>--dorado: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>body, html {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0; padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--petroleo);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Cormorant Garamond', serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>overflow-x: hidden;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* --- 1. PANTALLA DEL SELLO (INICIO) --- */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#pantalla-sello {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>inset: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 3000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #fdfdfd; /* Color de fondo papel claro */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: opacity 0.8s ease;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#pantalla-sello img {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 150px; /* Tamaño del sello dorado */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>filter: drop-shadow(0 5px 15px rgba(0,0,0,0.2));</p>
+<p class="p1"><span class="Apple-converted-space">            </span>animation: pulse 2s infinite;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.texto-abrir {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Cinzel';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #888;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.8rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 3px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* --- 2. CONTENEDOR DEL VIDEO --- */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#contenedor-video {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: fixed;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>inset: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 2000;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: black;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>#video-invitacion {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>object-fit: cover;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/* --- 3. CONTENIDO DE LA INVITACIÓN --- */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#invitacion {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>max-width: 500px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0 auto;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--petroleo);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding-bottom: 60px;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.seccion-blanca {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--blanco-papel);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #333;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 80px 20px 100px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom-left-radius: 50% 15%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-bottom-right-radius: 50% 15%;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.gold-text {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Cinzel', serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: var(--dorado);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>-webkit-background-clip: text;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>-webkit-text-fill-color: transparent;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.foto-marco {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>width: 85%;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin-top: -60px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: 12px solid white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 15px 35px rgba(0,0,0,0.4);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>position: relative;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>z-index: 10;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card-evento {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 40px 25px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 40px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 50px 50px 15px 15px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #444;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 10px 25px rgba(0,0,0,0.2);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.btn {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: var(--petroleo);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: white !important;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 14px 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 30px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>text-decoration: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: inline-block;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Cinzel', serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 0.75rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>letter-spacing: 1px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.circulos { display: flex; justify-content: center; gap: 12px; margin: 25px 0; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.dot { width: 30px; height: 30px; border-radius: 50%; }</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes pulse {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>0%, 100% { transform: scale(1); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>50% { transform: scale(1.1); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.reveal { animation: fadeInUp 1.5s ease-out; }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>@keyframes fadeInUp {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>from { opacity: 0; transform: translateY(40px); }</p>
+<p class="p1"><span class="Apple-converted-space">            </span>to { opacity: 1; transform: translateY(0); }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="pantalla-sello" onclick="empezarVideo()"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="sello.png" alt="Sello Dorado"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="texto-abrir"&gt;TOCA PARA ABRIR&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="contenedor-video"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;video id="video-invitacion" playsinline&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;source src="video_apertura.mp4" type="video/mp4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/video&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="invitacion"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="seccion-blanca"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="gold-text"&gt;Save the Date&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="letter-spacing: 3px;"&gt;10 JULIO 2026&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h1 style="font-family: 'Playfair Display'; font-size: 2.8rem; margin: 20px 0;"&gt;Adriana &amp; Alejandro&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="font-style: italic;"&gt;"La vida nos regaló el encuentro..."&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;img src="FOTO NOSOTROS.png" class="foto-marco" alt="Adriana y Alejandro"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="card-evento"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="gold-text"&gt;Boda Civil&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;JMD Villa de Vallecas&lt;/strong&gt;&lt;br&gt;13:30 Horas&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="https://maps.app.goo.gl/V3H9mC7qQZc5Z6Yh8" target="_blank" class="btn"&gt;Abrir Google Maps&lt;/a&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;hr style="margin: 30px 0; border: 0; border-top: 1px solid #eee;"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="gold-text"&gt;Recepción&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;&lt;strong&gt;Restaurante San Francisco&lt;/strong&gt;&lt;br&gt;14:30 Horas&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="https://maps.app.goo.gl/r6p6zMh9G5s4K5XW7" target="_blank" class="btn"&gt;Abrir Google Maps&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section style="padding: 40px 20px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="gold-text"&gt;Dress Code&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;FORMAL DE VERANO&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="circulos"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="dot" style="background: #ADD8E6;"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="dot" style="background: #C1E1C1;"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="dot" style="background: #E6E6FA;"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="dot" style="background: #FFB7C5;"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="dot" style="background: #F0E68C;"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p style="font-size: 0.8rem; font-style: italic;"&gt;Por favor, evitar blanco, negro o rojo.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;section class="seccion-blanca" style="border-radius: 100px 100px 0 0; margin-top: 50px;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="gold-text"&gt;¿Nos acompañas?&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p&gt;Confirma antes del 10 de junio&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;a href="TU_LINK_DE_FORMULARIO" target="_blank" class="btn" style="padding: 18px 45px;"&gt;CONFIRMAR ASISTENCIA&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;footer style="padding: 40px; font-family: 'Cinzel'; letter-spacing: 2px; font-size: 0.8rem; opacity: 0.7;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>ADRIANA &amp; ALEJANDRO | 2026</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const pantallaSello = document.getElementById('pantalla-sello');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const contenedorVideo = document.getElementById('contenedor-video');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const video = document.getElementById('video-invitacion');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const invitacion = document.getElementById('invitacion');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>function empezarVideo() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Desvanecer el sello</p>
+<p class="p1"><span class="Apple-converted-space">            </span>pantallaSello.style.opacity = '0';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>pantallaSello.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Mostrar y reproducir video</p>
+<p class="p1"><span class="Apple-converted-space">                </span>contenedorVideo.style.display = 'flex';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>video.play();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, 800);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Cuando el video termina</p>
+<p class="p1"><span class="Apple-converted-space">        </span>video.onended = function() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>contenedorVideo.style.opacity = '0';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>contenedorVideo.style.transition = 'opacity 1s ease';</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>contenedorVideo.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// Mostrar invitación final</p>
+<p class="p1"><span class="Apple-converted-space">                </span>invitacion.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>invitacion.classList.add('reveal');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>window.scrollTo(0, 0);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, 1000);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>};</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
