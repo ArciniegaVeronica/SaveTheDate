@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+</html>
+<script>
+/* AISLAMOS EL SEGUNDO HTML PARA QUE NO ROMPA EL PRIMERO */
+document.write(`
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -243,6 +247,16 @@
                 window.scrollTo(0, 0);
             }, 1000);
         };
+
+        <script>
+setTimeout(()=>{
+    const duplicados = document.querySelectorAll('#pantalla-sello');
+    if(duplicados.length > 1){
+        duplicados[1].id = 'pantalla-sello-2';
+    }
+},100);
+</script>
+    
     </script>
 </body>
 </html>    padding: 60px 20px;
@@ -389,3 +403,6 @@ video.onended=function(){
 
 </body>
 </html>
+
+`);
+</script>
